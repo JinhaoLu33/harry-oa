@@ -1,14 +1,13 @@
 import request from '@/utils/request'
 
-const api_name = '/admin/system/sysUser'
+const api_name = '/admin/process/processTemplate'
 
 export default {
 
-  getPageList(page, limit, searchObj) {
+  getPageList(page, limit) {
     return request({
       url: `${api_name}/${page}/${limit}`,
-      method: 'get',
-      params: searchObj // url查询字符串或表单键值对
+      method: 'get'
     })
   },
   getById(id) {
@@ -39,9 +38,10 @@ export default {
       method: 'delete'
     })
   },
-  updateStatus(id, status) {
+  //发布 ，部署流程定义
+  publish(id) {
     return request({
-      url: `${api_name}/updateStatus/${id}/${status}`,
+      url: `${api_name}/publish/${id}`,
       method: 'get'
     })
   }
